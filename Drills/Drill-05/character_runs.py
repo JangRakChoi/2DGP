@@ -30,12 +30,23 @@ def MoveSecondStep() :
         update_canvas()
         frame = (frame + 1) % 8
         x += 11
-        y += 4
+        y += 6
         delay(0.01)
         get_events()
 
 def MoveThirdStep() :
-    pass
+    x, y = 535, 470
+    frame = 0
+    while (x > 477 and y > 203) :
+        clear_canvas()
+        grass.draw(400, 30)
+        character.clip_draw(frame * 100, 0, 100, 100, x, y)
+        update_canvas()
+        frame = (frame + 1) % 8
+        x -= 3
+        y -= 11
+        delay(0.01)
+        get_events()
 
 def MoveFourthStep() :
     pass
@@ -60,7 +71,7 @@ def MoveTenthStep() :
 
 while True :
     #MoveFirstStep()
-    MoveSecondStep()
+    #MoveSecondStep()
     MoveThirdStep()
     MoveFourthStep()
     MoveFifthStep()
