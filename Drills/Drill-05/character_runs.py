@@ -4,10 +4,20 @@ grass = load_image('grass.png')
 character = load_image('animation_sheet.png')
 
 def StopRightSide(x, y) :
-    pass
+    frame = 0
+    clear_canvas()
+    grass.draw(400, 30)
+    character.clip_draw(0, 300, 100, 100, x, y)
+    update_canvas()
+    delay(0.2)
 
 def StopLeftSide(x, y) :
-    pass
+    frame = 0
+    clear_canvas()
+    grass.draw(400, 30)
+    character.clip_draw(0, 200, 100, 100, x, y)
+    update_canvas()
+    delay(0.2)
 
 def MoveFirstStep() :
     frame, x, y = 0, 203, 535
