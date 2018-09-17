@@ -4,8 +4,6 @@ open_canvas()
 grass = load_image('grass.png')
 character = load_image('animation_sheet.png')
 
-OriginX, OriginY = 203, 535
-
 def MoveFirstStep() :
     x, y = 203, 535
     frame = 0
@@ -133,7 +131,19 @@ def MoveNinthStep() :
         get_events()
 
 def MoveTenthStep() :
-    pass
+    x, y = 712, 349
+    frame = 0
+    while (x > 203 and y < 535):
+        clear_canvas()
+        grass.draw(400, 30)
+        character.clip_draw(frame * 100, 0, 100, 100, x, y)
+        update_canvas()
+        frame = (frame + 1) % 8
+        x -= 13
+        y += 5
+        delay(0.01)
+        get_events()
+
 
 while True :
     #MoveFirstStep()
@@ -144,7 +154,7 @@ while True :
     #MoveSixthStep()
     #MoveSeventhStep()
     #MoveEighthStep()
-    MoveNinthStep()
+    #MoveNinthStep()
     MoveTenthStep()
 
 close_canvas()
