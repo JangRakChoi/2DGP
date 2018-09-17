@@ -1,13 +1,24 @@
 from pico2d import *
+
 open_canvas()
 grass = load_image('grass.png')
-character = load_image('run_animation.png')
+character = load_image('animation_sheet.png')
 
-x = 0
-frame = 0
+OriginX, OriginY = 203, 535
 
 def MoveFirstStep() :
-    pass
+    x, y = 203, 535
+    frame = 0
+    while (x > 132 and y > 243) :
+        clear_canvas()
+        grass.draw(400, 30)
+        character.clip_draw(frame * 100, 0, 100, 100, x, y)
+        update_canvas()
+        frame = (frame + 1) % 8
+        x -= 3
+        y -= 6
+        delay(0.01)
+        get_events()
 
 def MoveSecondStep() :
     pass
@@ -49,4 +60,3 @@ while True :
     MoveTenthStep()
 
 close_canvas()
-
