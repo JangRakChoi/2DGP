@@ -99,12 +99,24 @@ def MoveSeventhStep() :
         character.clip_draw(frame * 100, 100, 100, 100, x, y)
         update_canvas()
         frame = (frame + 1) % 8
-        x += 3
+        x += 4
         y += 13
         delay(0.01)
         get_events()
+
 def MoveEighthStep() :
-    pass
+    x, y = 692, 518
+    frame = 0
+    while (x > 682 and y > 336):
+        clear_canvas()
+        grass.draw(400, 30)
+        character.clip_draw(frame * 100, 0, 100, 100, x, y)
+        update_canvas()
+        frame = (frame + 1) % 8
+        x -= 1
+        y -= 6
+        delay(0.01)
+        get_events()
 
 def MoveNinthStep() :
     pass
@@ -119,7 +131,7 @@ while True :
     #MoveFourthStep()
     #MoveFifthStep()
     #MoveSixthStep()
-    MoveSeventhStep()
+    #MoveSeventhStep()
     MoveEighthStep()
     MoveNinthStep()
     MoveTenthStep()
